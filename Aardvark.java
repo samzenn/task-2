@@ -280,6 +280,7 @@
    }
  
    public void rungame() {
+	     IOSpecialist io = new IOSpecialist();
      System.out
          .println("Welcome To Abominodo - The Best Dominoes Puzzle Game in the Universe");
      System.out.println("Version 1.0 (c), Kevan Buckley, 2010");
@@ -370,7 +371,7 @@
            collateGrid();
            break;
          }
-         pg();
+         printguess();
          generateGuesses();
          collateGuessGrid();
          mode = 1;
@@ -412,7 +413,7 @@
  
              break;
            case 1:
-             pg();
+             printguess();
              break;
            case 2:
              printGuessGrid();
@@ -724,7 +725,7 @@
  
          }
          mode = 0;
-         pg();
+         printguess();
          pf.dp.repaint();
          long now = System.currentTimeMillis();
          try {
