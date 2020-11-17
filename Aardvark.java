@@ -276,7 +276,10 @@
  
    public void run() {
      IOSpecialist io = new IOSpecialist();
+     rungame();
+   }
  
+   public void rungame() {
      System.out
          .println("Welcome To Abominodo - The Best Dominoes Puzzle Game in the Universe");
      System.out.println("Version 1.0 (c), Kevan Buckley, 2010");
