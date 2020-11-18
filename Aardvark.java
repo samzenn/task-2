@@ -173,13 +173,13 @@
    }
  
    private void tryToRotateDominoAt(int x, int y) {
-     Domino d = findDominoAt(x, y);
+     Domino d = findGuessAtandGuess(x, y);
      if (thisIsTopLeftOfDomino(x, y, d)) {
        if (d.ishl()) {
          boolean weFancyARotation = Math.random() < 0.5;
          if (weFancyARotation) {
            if (theCellBelowIsTopLeftOfHorizontalDomino(x, y)) {
-             Domino e = findDominoAt(x, y + 1);
+             Domino e = findGuessAtandGuess(x, y + 1);
              e.hx = x;
              e.lx = x;
              d.hx = x + 1;
@@ -194,7 +194,7 @@
          boolean weFancyARotation = Math.random() < 0.5;
          if (weFancyARotation) {
            if (theCellToTheRightIsTopLeftOfVerticalDomino(x, y)) {
-             Domino e = findDominoAt(x + 1, y);
+             Domino e = findGuessAtandGuess(x + 1, y);
              e.hx = x;
              e.lx = x + 1;
              d.hx = x;
@@ -211,36 +211,45 @@
    }
  
    private boolean theCellToTheRightIsTopLeftOfVerticalDomino(int x, int y) {
-     Domino e = findDominoAt(x + 1, y);
+     Domino e = findGuessAtandGuess(x + 1, y);
      return thisIsTopLeftOfDomino(x + 1, y, e) && !e.ishl();
    }
  
    private boolean theCellBelowIsTopLeftOfHorizontalDomino(int x, int y) {
-     Domino e = findDominoAt(x, y + 1);
+     Domino e = findGuessAtandGuess(x, y + 1);
      return thisIsTopLeftOfDomino(x, y + 1, e) && e.ishl();
    }
  
    private boolean thisIsTopLeftOfDomino(int x, int y, Domino d) {
      return (x == Math.min(d.lx, d.hx)) && (y == Math.min(d.ly, d.hy));
    }
+   
  
-   private Domino findDominoAt(int x, int y) {
-     for (Domino d : _d) {
-       if ((d.lx == x && d.ly == y) || (d.hx == x && d.hy == y)) {
-         return d;
-       }
-     }
-     return null;
-   }
  
-   private Domino findGuessAt(int x, int y) {
+   private Domino findGuessAtandGuess (int x, int y) {
+			   
+	  
      for (Domino d : _g) {
        if ((d.lx == x && d.ly == y) || (d.hx == x && d.hy == y)) {
          return d;
        }
-     }
+     
      return null;
    }
+     for (Domino d : _d) {
+         if ((d.lx == x && d.ly == y) || (d.hx == x && d.hy == y)) {
+           return d;
+         }
+       
+       return null;
+     }
+	return null;}
+  
+ 
+  
+  
+  
+  
  
    private Domino findGuessByLH(int x, int y) {
      for (Domino d : _g) {
@@ -533,7 +542,7 @@
              }
              x13--;
              y13--;
-             Domino lkj = findGuessAt(x13, y13);
+             Domino lkj = findGuessAtandGuess(x13, y13);
              if (lkj == null) {
                System.out.println("Couln't find a domino there");
              } else {
@@ -654,7 +663,7 @@
                }
                x3--;
                y3--;
-               Domino lkj2 = findDominoAt(x3, y3);
+               Domino lkj2 = findGuessAtandGuess(x3, y3);
                System.out.println(lkj2);
                break;
              case 3: {
