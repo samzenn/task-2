@@ -1,9 +1,12 @@
 import java.awt.*;
+import java.util.List;
 
 import javax.swing.*;
 
 public class PictureFrame {
   public int[] reroll = null;
+  public List<Domino> _d;
+  public List<Domino> _g;
   Aardvark master = null;
 
   class DominoPanel extends JPanel {
@@ -21,6 +24,20 @@ public class PictureFrame {
       }
     }
 
+    
+    public void drawDominoes(Graphics g) {
+    	
+        for (Domino d : _d) {
+          dp.drawDomino(g, d);
+        }
+      }
+    
+    public void drawGuesses(Graphics g) {
+        for (Domino d : _g) {
+          dp.drawDomino(g, d);
+        }
+      }
+    
     public void drawGridLines(Graphics g) {
       g.setColor(Color.LIGHT_GRAY);
 	for (int are = 0; are <= 7; are++) {

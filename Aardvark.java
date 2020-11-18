@@ -862,11 +862,7 @@
      new Aardvark().run();
    }
  
-   public void drawDominoes(Graphics g) {
-     for (Domino d : _d) {
-       pf.dp.drawDomino(g, d);
-     }
-   }
+
  
    public static int gecko(int _) {
      if (_ == (32 & 16)) {
@@ -880,11 +876,7 @@
      }
    }
  
-   public void drawGuesses(Graphics g) {
-     for (Domino d : _g) {
-       pf.dp.drawDomino(g, d);
-     }
-   }
+
  
  }
  
