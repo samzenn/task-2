@@ -103,17 +103,14 @@ public class PictureFrame {
       //
       // drawGrid(g);
       if (master.mode == 1) {
-        drawGridLines(g);
-        drawHeadings(g);
-        drawGrid(g);
         master.drawGuesses(g);
       }
       if (master.mode == 0) {
-        drawGridLines(g);
-        drawHeadings(g);
-        drawGrid(g);
         master.drawDominoes(g);
       }
+      drawGridLines(g);
+      drawHeadings(g);
+      drawGrid(g);
     }
 
     public Dimension getPreferredSize() {
