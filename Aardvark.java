@@ -17,7 +17,7 @@
    public int[][] grid = new int[7][8];
    public int[][] gg = new int[7][8];
    int mode = -1;
-   int cf;
+   int CollectFrame;
    int score;
    long startTime;
  
@@ -384,7 +384,7 @@
          generateGuesses();
          collateGuessGrid();
          mode = 1;
-         cf = 0;
+         CollectFrame = 0;
          score = 0;
          startTime = System.currentTimeMillis();
          pf.PictureFrame(this);
@@ -581,14 +581,14 @@
              }
              switch (yy) {
              case 0:
-               switch (cf) {
+               switch (CollectFrame) {
                case 0:
                  System.out.println("Well done");
                  System.out.println("You get a 3 point bonus for honesty");
                  score++;
                  score++;
                  score++;
-                 cf++;
+                 CollectFrame++;
                  break;
                case 1:
                  System.out
@@ -600,7 +600,7 @@
                    score -= 100;
                  }
                  playerName = playerName + "(scoundrel)";
-                 cf++;
+                 CollectFrame++;
                  break;
                default:
                  System.out.println("Some people just don't learn");
